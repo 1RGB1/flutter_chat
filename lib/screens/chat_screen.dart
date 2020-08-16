@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class ChatScreen extends StatelessWidget {
   void _addMessage() {
     Firestore.instance
-        .collection('chats/rzfzOWmAkme2DwlJzrpD/messages/')
+        .collection('chats/rzfzOWmAkme2DwlJzrpD/messages')
         .add(<String, dynamic>{
       'text': 'This is added by application!',
       'created_at': FieldValue.serverTimestamp()
@@ -37,8 +37,10 @@ class ChatScreen extends StatelessWidget {
           );
         },
       ),
-      floatingActionButton:
-          FloatingActionButton(child: Icon(Icons.add), onPressed: _addMessage),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: _addMessage,
+      ),
     );
   }
 }
